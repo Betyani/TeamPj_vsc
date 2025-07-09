@@ -8,6 +8,7 @@ export default function ProductModify({ id }) {
         category: ""
     });
 
+    //id값이 변할 때마다 실행
     useEffect(() => {
         const search = async () => {
             try {
@@ -20,7 +21,7 @@ export default function ProductModify({ id }) {
                     name: response.data.name,
                     price: response.data.price,
                     category: response.data.category
-                });
+                }); // id값을 추가로 product에 저장
                 console.log("불러온 상품: ", response.data);
             } catch (error) {
                 console.log("실패", error);
@@ -29,11 +30,11 @@ export default function ProductModify({ id }) {
 
         if (id) {
             search();
-        }
+        } // 만약 id값이 있으면 실행
     }, [id]);
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        e.preventDefault(); //제출시 페이지 새로고침 방지
 
         try {
             console.log("보낼 값:", product);
@@ -46,9 +47,10 @@ export default function ProductModify({ id }) {
         }
     };
 
+    //입력값 실시간 반영
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setProduct({ ...product, [name]: value });
+        setProduct({ ...product, [name]: value }); //입력값만 덮어쓰기
     }
 
     return (

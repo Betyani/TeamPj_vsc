@@ -10,8 +10,10 @@ export default function ProductRegister() {
         category: "",
     });
 
+
+    //등록버튼을 눌렀을 경우 실행
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        e.preventDefault(); //제출 시 페이지 새로고침 방지
 
         try {
             console.log("보낼 값:", product);
@@ -24,9 +26,10 @@ export default function ProductRegister() {
         }
     };
 
+    //입력값 실시간 반영
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setProduct({ ...product, [name]: value });
+        setProduct({ ...product, [name]: value });  //입력값만 덮어쓰기
     }
 
 
