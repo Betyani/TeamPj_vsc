@@ -10,6 +10,8 @@ export default function ProductModify({ id }) {
 
     //id값이 변할 때마다 실행
     useEffect(() => {
+        if (!id) return;
+
         const search = async () => {
             try {
                 const response = await axios.get("http://localhost:8080/cal/product/product",
@@ -21,16 +23,15 @@ export default function ProductModify({ id }) {
                     name: response.data.name,
                     price: response.data.price,
                     category: response.data.category
-                }); // id값을 추가로 product에 저장
+                }); // id값을 추가하고 product에 저장
                 console.log("불러온 상품: ", response.data);
             } catch (error) {
                 console.log("실패", error);
             }
         };
 
-        if (id) {
-            search();
-        } // 만약 id값이 있으면 실행
+        search();
+
     }, [id]);
 
     const handleSubmit = async (e) => {

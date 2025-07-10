@@ -10,7 +10,6 @@ export default function ProductRegister() {
         category: "",
     });
 
-
     //등록버튼을 눌렀을 경우 실행
     const handleSubmit = async (e) => {
         e.preventDefault(); //제출 시 페이지 새로고침 방지
@@ -18,7 +17,7 @@ export default function ProductRegister() {
         try {
             console.log("보낼 값:", product);
             const response = await axios.post('http://localhost:8080/cal/product/register', product);
-            setProduct({ name: "", price: "", category: "" });
+            setProduct({ name: "", price: "", category: "" }); //입력창 초기화
             console.log("등록 성공");
         } catch (error) {
             console.error('오류남: ', error);
@@ -31,7 +30,6 @@ export default function ProductRegister() {
         const { name, value } = e.target;
         setProduct({ ...product, [name]: value });  //입력값만 덮어쓰기
     }
-
 
     return (
         <>
