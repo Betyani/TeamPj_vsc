@@ -1,14 +1,16 @@
 import './App.css';
-import ProductDelete from './prodcut/ProductDelete';
-// import ProductModify from './prodcut/ProductModify';
-import ProductRegister from './prodcut/ProductRegister';
+// import ProductDelete from './prodcut/ProductDelete';
+import ProductList from './product/ProductList';
+import ProductModify from './product/ProductModify';
+import ProductRegister from './product/ProductRegister';
 
 function App() {
     return (
         <>
         <ProductRegister />
-        {/* <ProductModify id={3} /> */}
-        {/* <ProductDelete id={4} /> */}
+        <ProductList />
+        <ProductModify id={3} />
+        {/* <ProductDelete id={1} /> */}
         </>
     );
 }

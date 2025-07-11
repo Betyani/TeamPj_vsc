@@ -57,7 +57,7 @@ export default function ProductModify({ id }) {
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <h2>상품 등록</h2>
+                <h2>상품 수정</h2>
                 <div>
                     <label>상품명: </label>
                     <input type="text" name="name" value={product.name} onChange={handleChange} required />
