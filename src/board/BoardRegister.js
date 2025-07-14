@@ -42,7 +42,7 @@ export default function BoardRegister({ productId }) {
                 </div>
                 <div>
                     <label>내용: </label>
-                    <textarea name="content" value={review.content} onChange={handleChange} required />
+                    <textarea name="content" value={review.content} onChange={handleChange} required rows={5} cols={50} />
                 </div>
                 <div>
                     <label>작성자: </label>
