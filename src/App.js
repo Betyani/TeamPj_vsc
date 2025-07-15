@@ -1,4 +1,5 @@
 import './App.css';
+import BoardList from './board/BoardList';
 import BoardRegister from './board/BoardRegister';
 // import ProductDelete from './prodcut/ProductDelete';
 import ProductList from './product/ProductList';
@@ -12,6 +13,7 @@ function App() {
         <ProductList />
         <ProductModify id={3} />
         <BoardRegister productId={1} />
+        <BoardList productId={1} />
         {/* <ProductDelete id={1} /> */}
         </>
     );
