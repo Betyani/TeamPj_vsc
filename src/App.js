@@ -1,10 +1,12 @@
 import './App.css';
 import BoardList from './board/BoardList';
 import BoardRegister from './board/BoardRegister';
+import BoardModify from './board/BoardModify';
 // import ProductDelete from './prodcut/ProductDelete';
 import ProductList from './product/ProductList';
 import ProductModify from './product/ProductModify';
 import ProductRegister from './product/ProductRegister';
+
 
 function App() {
     return (
@@ -14,7 +16,7 @@ function App() {
         <ProductModify id={3} />
         <BoardRegister productId={1} />
         <BoardList productId={1} />
-        {/* <ProductDelete id={1} /> */}
+        <BoardModify id={1} />
         </>
     );
 }
