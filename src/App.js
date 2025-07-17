@@ -2,7 +2,6 @@ import './App.css';
 import BoardList from './board/BoardList';
 import BoardRegister from './board/BoardRegister';
 import BoardModify from './board/BoardModify';
-// import ProductDelete from './prodcut/ProductDelete';
 import ProductList from './product/ProductList';
 import ProductModify from './product/ProductModify';
 import ProductRegister from './product/ProductRegister';
