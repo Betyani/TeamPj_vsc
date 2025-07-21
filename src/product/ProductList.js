@@ -24,6 +24,13 @@ export default function ProductList() {
             <h2>상품 목록</h2>
             {product.map((product, index) => (
                 <div key={index}>
+                    {product.imageUrl && (
+                        <img
+                            src={`http://localhost:8080/cal/image/load/${product.imageUrl}`}
+                            alt={product.name}
+                            width="200"
+                        />
+                    )}
                     <p>이름: {product.name}</p>
                     <p>가격: {product.price}</p>
                     <p>카테고리: {product.category}</p>
