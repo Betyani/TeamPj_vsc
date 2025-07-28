@@ -2,13 +2,20 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function ProductList() {
-    const [product, setProduct] = useState([]);
+    const [products, setProducts] = useState([]);
+    const [page, setPage] = useState(1);
+    const [totalPage, setTotalPage] = useState(1);
 
     useEffect(() => {
         const search = async () => {
             try {
-                const response = await axios.get("http://localhost:8080/cal/product/list");
-                setProduct(response.data);
+                const response = await axios.get("http://localhost:8080/cal/product/list", 
+                { 
+                    params: { page } 
+                });
+                setProducts(response.data.products);
+                setTotalPage(response.data.totalPage);
+                
                 console.log("불러온 상품: ", response.data);
             } catch (error) {
                 console.log("실패", error);
@@ -17,12 +24,16 @@ export default function ProductList() {
 
         search();
 
-    }, []);
+    }, [page]);
+
+    const goToPage = (pageNum) => {
+        setPage(pageNum);
+    } 
 
     return (
         <>
             <h2>상품 목록</h2>
-            {product.map((product, index) => (
+            {products.map((product, index) => (
                 <div key={index}>
                     {product.imageUrl && (
                         <img
@@ -37,6 +48,16 @@ export default function ProductList() {
                     <hr />
                 </div>
             ))}
+
+            <div>
+            {Array.from({ length: totalPage }, (_, index) => (
+                <button key={ index + 1} onClick={() => goToPage( index+1 )} >
+                    [{ index + 1 }]
+                </button>
+            ))}    
+                
+            </div>
+
         </>
     );
 

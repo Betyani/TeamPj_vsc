@@ -8,7 +8,8 @@ export default function ProductDelete({ id }) {
 
         const connect = async () => {
             try {
-                const response = await axios.delete("http://localhost:8080/cal/product/delete", {
+                const response = await axios.delete("http://localhost:8080/cal/product/delete", 
+                {
                     params: { id }
                 });
                 console.log("삭제 성공");
