@@ -4,18 +4,18 @@ import axios from "axios";
 export default function ProductList() {
     const [products, setProducts] = useState([]);
     const [page, setPage] = useState(1);
-    const [totalPage, setTotalPage] = useState(1);
+    const [pageInfo, setPageInfo] = useState({});
 
     useEffect(() => {
         const search = async () => {
             try {
-                const response = await axios.get("http://localhost:8080/cal/product/list", 
-                { 
-                    params: { page } 
-                });
+                const response = await axios.get("http://localhost:8080/cal/product/list",
+                    {
+                        params: { page }
+                    });
                 setProducts(response.data.products);
-                setTotalPage(response.data.totalPage);
-                
+                setPageInfo(response.data.pageInfo);
+
                 console.log("불러온 상품: ", response.data);
             } catch (error) {
                 console.log("실패", error);
@@ -28,7 +28,7 @@ export default function ProductList() {
 
     const goToPage = (pageNum) => {
         setPage(pageNum);
-    } 
+    }
 
     return (
         <>
@@ -50,12 +50,26 @@ export default function ProductList() {
             ))}
 
             <div>
-            {Array.from({ length: totalPage }, (_, index) => (
-                <button key={ index + 1} onClick={() => goToPage( index+1 )} >
-                    [{ index + 1 }]
-                </button>
-            ))}    
-                
+                {pageInfo.hasPrev && (
+                    <button onClick={() => goToPage(pageInfo.startPage - 1)}>
+                        ◀ 이전
+                    </button>
+                )}
+
+                {Array.from({ length: pageInfo.endPage - pageInfo.startPage + 1 }, (_, index) => {
+                    const pageNum = pageInfo.startPage + index;
+                    return (
+                        <button key={ pageNum } onClick={() => goToPage(pageNum)} >
+                            [{ pageNum }]
+                        </button>);
+                })}
+
+                {pageInfo.hasNext && (
+                    <button onClick={() => goToPage(pageInfo.endPage + 1)}>
+                        다음▶
+                    </button>
+                )}
+
             </div>
 
         </>
