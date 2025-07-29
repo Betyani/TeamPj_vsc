@@ -103,6 +103,7 @@ export default function ProductRegister() {
                         <option value="삼각김밥/김밥">삼각김밥/김밥</option>
                         <option value="샌드위치/햄버거">샌드위치/햄버거</option>
                         <option value="음료수/아이스크림">음료수/아이스크림</option>
+                        <option value="과자/디저트">과자/디저트</option>
                         <option value="기타">기타</option>
                     </select>
                 </div>

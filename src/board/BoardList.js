@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function BoardList({ productId }) {
-
     const [review, setReview] = useState([]);
     const [page, setPage] = useState(1);
     const [pageInfo, setPageInfo] = useState({});
