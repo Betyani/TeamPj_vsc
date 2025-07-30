@@ -22,12 +22,12 @@ export default function ProductList() {
                     desc
                 };
 
-                const filterdParams = filterParams(rawParams);
-                console.log("보낸 파라미터: ", filterdParams);
+                const filterd = filterParams(rawParams);
+                console.log("보낸 파라미터: ", filterd);
 
                 const response = await axios.get("http://localhost:8080/cal/product/list",
                     {
-                        params: filterdParams
+                        params: filterd
                     });
                 setProducts(response.data.products);
                 setPageInfo(response.data.pageInfo);
