@@ -29,7 +29,7 @@ export default function BoardRegister({ productId }) {
     //입력값 실시간 반영
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setReview({ ...review, [name]: value });  //입력값만 덮어쓰기
+        setReview(prev => ({ ...prev, [name]: value }));  //입력값만 덮어쓰기
     }
 
     return (

@@ -55,7 +55,7 @@ export default function ProductRegister() {
     //입력값 실시간 반영
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setProduct({ ...product, [name]: value });  //입력값만 덮어쓰기
+        setProduct(prev => ({ ...prev, [name]: value }));  //입력값만 덮어쓰기
     }
 
     const handleFileChange = (e) => {
