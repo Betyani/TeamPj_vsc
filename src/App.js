@@ -6,6 +6,7 @@ import ProductList from './product/ProductList';
 import ProductModify from './product/ProductModify';
 import ProductRegister from './product/ProductRegister';
 import ImageUpload from './image/ImageUpload';
+import SignUp from './member/SignUp';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <BoardList productId={1} />
         <BoardModify id={1} />
         <ImageUpload />
+        <SignUp />
         </>
     );
 }
